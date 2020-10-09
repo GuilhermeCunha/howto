@@ -1,0 +1,16 @@
+## Handle HTTP requests
+server {
+    listen 80;
+    server_name example.com.br wwww.example.com.br;
+
+    # If you want serve static files
+    # root /path/to/root/folder/;
+    # location / {
+    #     try_files $uri $uri/ =404; # Handle if the requested page is not found
+    # }
+
+    # If you want point to localhost port
+    location / {
+		proxy_pass http://localhost:$PORT; 
+	}
+}
