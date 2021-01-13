@@ -8,7 +8,7 @@ sudo apt install nginx
 sudo ufw allow 'Nginx FULL'
 ```
 
-### Put the configuration file inside the website configuration
+### Put the configuration inside the website configuration
 
 ```
 nano /etc/nginx/sites-available/example.com.br
@@ -38,6 +38,7 @@ server {
 ### Verify configs and restart
 
 ```
+sudo ln -s /etc/nginx/sites-available/example.com.br /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
@@ -54,7 +55,7 @@ sudo npm install -g pm2
 git clone https://github.com/User/project.git
 ```
 
-### Install dependencies and start the project
+### Install dependenicies and start project
 
 ```
 cd project
@@ -63,4 +64,4 @@ pm2 start src/server.js --name AppName # OBS: This app is running on $PORT
 # pm2 start "yarn run start" --name AppName ## OR you can use an specific script to start the app
 ```
 
-### Go to your server Public IP, and see your application runing!
+## Go to your server Public IP, and see your application runing!
