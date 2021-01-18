@@ -8,7 +8,7 @@ sudo apt install nginx
 sudo ufw allow 'Nginx FULL'
 ```
 
-### Put the configuration file inside the website configuration
+### Put the configuration inside the website configuration
 
 ```
 nano /etc/nginx/sites-available/example.com.br
@@ -55,7 +55,7 @@ sudo npm install -g pm2
 git clone https://github.com/User/project.git
 ```
 
-### Install dependencies and start the project
+### Install dependenicies and start project
 
 ```
 cd project
@@ -66,6 +66,6 @@ pm2 start src/server.js --name AppName # OBS: This app is running on $PORT
 
 ### Go to your server Public IP, and see your application runing!
 
-
 ### CertBot
 - https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
+## Go to your server Public IP, and see your application runing!
