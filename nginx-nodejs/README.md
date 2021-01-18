@@ -38,6 +38,7 @@ server {
 ### Verify configs and restart
 
 ```
+sudo ln -s /etc/nginx/sites-available/example.com.br /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
@@ -64,3 +65,7 @@ pm2 start src/server.js --name AppName # OBS: This app is running on $PORT
 ```
 
 ### Go to your server Public IP, and see your application runing!
+
+
+### CertBot
+- https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
