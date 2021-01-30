@@ -65,3 +65,7 @@ pm2 start src/server.js --name AppName # OBS: This app is running on $PORT
 ```
 
 ## Go to your server Public IP, and see your application runing!
+
+
+## Free SSL
+https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
