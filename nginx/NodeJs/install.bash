@@ -35,6 +35,8 @@ sudo snap install --classic certbot;
 sudo ln -s /snap/bin/certbot /usr/bin/certbot;
 
 echo "[CERTBOT] installed successfuly !"
+
+sudo certbot register
 #sudo certbot --nginx
 #pm2 startup systemd
 
