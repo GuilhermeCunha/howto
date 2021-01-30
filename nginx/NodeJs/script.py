@@ -46,7 +46,7 @@ def main():
     if(args.domain is None):
         print("domain is none")
         return
-    if(args.domportain is None):
+    if(args.port is None):
         print("port is none")
         return
 
