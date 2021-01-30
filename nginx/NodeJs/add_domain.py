@@ -1,15 +1,19 @@
 import subprocess
-import os
+import os, errno
 import argparse
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 NGINX_SITES_AVALIABLE_PATH = '/etc/nginx/sites-available'
-NGINX_SITES_ENABLE_PATH = '/etc/nginx/sites-available'
+NGINX_SITES_ENABLE_PATH = '/etc/nginx/sites-enabled'
 
 def active_site(domain):
-    subprocess.call(f"sudo ln -s /etc/nginx/sites-available/{domain} /etc/nginx/sites-enabled/")
-
+    print(f"Activating domain {domain}")
+    os.symlink(f"/etc/nginx/sites-available/{domain}", f'/etc/nginx/sites-enabled/{domain}')
+    
 def restart_ngix():
-    subprocess.call(f"sudo systemctl restart nginx")
+    print(f"Restarting NGINX")
+    subprocess.call(f"sudo systemctl restart nginx;", shell=True)
 
 def read_file(path):
     f = open(path, "r")
@@ -20,11 +24,13 @@ def read_file(path):
     return file_string
 
 def save_file(path_with_ext, content):
+    print(f"Saving file in {path_with_ext}")
+
     file = open(path_with_ext, "w")
     file.write(content)
     file.close()
 
-def create_site_config(domain, port, template_file = "../examples/example.com.br"):
+def create_site_config(domain, port, template_file = os.path.join('..', 'examples', "example.com.br")):
     file_string = read_file(template_file)
     
     file_string = file_string.replace('$PORT', str(port))
@@ -51,6 +57,9 @@ def main():
         return
 
     file_string = create_site_config(args.domain, args.port)
+
+    print(file_string)
+    
     save_file(os.path.join(NGINX_SITES_AVALIABLE_PATH, args.domain), file_string)
     active_site(args.domain)
     restart_ngix()
