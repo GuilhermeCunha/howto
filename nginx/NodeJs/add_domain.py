@@ -11,6 +11,10 @@ def active_site(domain):
     print(f"Activating domain {domain}")
     os.symlink(f"/etc/nginx/sites-available/{domain}", f'/etc/nginx/sites-enabled/{domain}')
     
+def add_ssl(domain):
+    print(f"Adding SSL to domain {domain}")
+    subprocess.call(f"sudo certbot --nginx -d {domain}", shell=True)
+    
 def restart_ngix():
     print(f"Restarting NGINX")
     subprocess.call(f"sudo systemctl restart nginx;", shell=True)
@@ -63,6 +67,7 @@ def main():
     save_file(os.path.join(NGINX_SITES_AVALIABLE_PATH, args.domain), file_string)
     active_site(args.domain)
     restart_ngix()
+    add_ssl(args.domain)
 
 if __name__ == "__main__":
     main()

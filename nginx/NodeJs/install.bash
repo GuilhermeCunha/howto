@@ -39,4 +39,5 @@ echo "[CERTBOT] installed successfuly !"
 #pm2 startup systemd
 
 # Create your Apps
-#python script.py --d teste.com.br --p 3333
+#sudo python3 script.py --d socialbot-api.blablahotel.com.br --p 3333
+#sudo certbot register --non-interactive --agree-tos -m conexoes.projeto.socialbot@gmail.com
