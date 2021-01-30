@@ -34,7 +34,7 @@ def create_site_config(domain, port, template_file = "../examples/example.com.br
     return file_string
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--domain", "-d", help="domain")
     parser.add_argument("--port", "-p", help="domain")
@@ -54,3 +54,6 @@ if __name__ == "__main__":
     save_file(os.path.join(NGINX_SITES_AVALIABLE_PATH, args.domain), file_string)
     active_site(args.domain)
     restart_ngix()
+
+if __name__ == "__main__":
+    main()
