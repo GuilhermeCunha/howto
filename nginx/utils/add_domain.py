@@ -61,8 +61,6 @@ def main():
         return
 
     file_string = create_site_config(args.domain, args.port)
-
-    print(file_string)
     
     save_file(os.path.join(NGINX_SITES_AVALIABLE_PATH, args.domain), file_string)
     active_site(args.domain)
