@@ -1,7 +1,7 @@
 ## Handle HTTP requests
 server {
     listen 80;
-    server_name $DOMAIN wwww.$DOMAIN;
+    server_name $DOMAIN www.$DOMAIN;
 
     # If you want serve static files
     # root /path/to/root/folder/;
